@@ -7,6 +7,10 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 cv2.imwrite("../lung_gray.png", img)
 print(img.shape)
 
+# salt noisy, pepper noisy, gussian noisy
+# differences?
+#   
+
 # img:  source image
 # n:    salt numbers
 def salt(img, n):

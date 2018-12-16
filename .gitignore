@@ -1,4 +1,5 @@
 0*/*.png
-images/
+NSCLC Radiogenomics/*
+*.pdf
 *.pyc
-
+images/

@@ -145,7 +145,7 @@ class Point(object):
         return self.gray
 
 if __name__ == "__main__":
-    img = cv2.imread("/home/tec/code/image_processing/lung.png")
+    img = cv2.imread("E:\Code\image_processing\lung.png")
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype("float")
     # roi = img[:100, :100]
     roi = img

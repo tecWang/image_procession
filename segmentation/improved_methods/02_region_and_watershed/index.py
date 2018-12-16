@@ -7,7 +7,8 @@ import tec.tools.image_tools as imtool
 import tec.image_processor.region_grow as region_grow
 import tec.image_processor.segmentation as segmentation
 
-img = cv2.imread("/home/tec/code/image_processing/lung.png")
+# img = cv2.imread("/home/tec/code/image_processing/lung.png")
+img = cv2.imread("E:\Code\image_processing\lung.png")
 # img = cv2.imread("/home/tec/code/image_processing/coins.jpg")
 
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -39,5 +40,5 @@ imtool.plot_multi({
             **mid_water_list,
             # **high_water_list, 
             **process_list
-            }, cols=11, savefig=True, showtitle=False)
+            }, cols=8, savefig=True, showtitle=False)
 

@@ -96,7 +96,8 @@ def grdient_transform(img, dtype="sobel"):
         return lap_dst, process_list
 
 if __name__ == "__main__":
-    img = cv2.imread("/home/tec/code/image_processing/lung_gray.png")
+    img = cv2.imread("E:\Code\image_processing\lung.png")
+    # img = cv2.imread("/home/tec/code/image_proce1ssing/lung_gray.png")
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     thres = 20
@@ -119,8 +120,10 @@ if __name__ == "__main__":
     _, lap_watershed_result = watershed(lap_dst, thres=thres, max_value=max_value, thres_type=thres_type, prefix="lap")
 
     # preview result
-    process_list = {**origin_watershed_result,
-                    **sobel_result, **sobel_watershed_result, 
-                    **scharr_result, **scharr_watershed_result,
-                    **lap_result, **lap_watershed_result}
-    plot_multi(process_list, cols=10, savefig=True)
+    # process_list = {**origin_watershed_result,
+    #                 **sobel_result, **sobel_watershed_result, 
+    #                 **scharr_result, **scharr_watershed_result,
+    #                 **lap_result, **lap_watershed_result}
+    process_list = {
+                    **sobel_result, **sobel_watershed_result}
+    plot_multi(process_list, cols=8, savefig=True)

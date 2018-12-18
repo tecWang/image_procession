@@ -150,10 +150,10 @@ if __name__ == "__main__":
     # roi = img[:100, :100]
     roi = img
     p1 = Point(x=250, y=280, gray=roi[250, 280])
-    p2 = Point(x=250, y=460, gray=roi[250, 460])
-    sa = Seed_Area(roi, [p1, p2])
+    # p2 = Point(x=250, y=460, gray=roi[250, 460])
+    sa = Seed_Area(roi, [p1])
 
-    thres = 5
+    thres = 1
     res = sa.grow(thres=thres)
 
     process_list = {}

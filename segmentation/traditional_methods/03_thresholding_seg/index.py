@@ -48,7 +48,8 @@ def otsu_threshold(img, fig_name=None):
 
 if __name__ == "__main__":
     # img = cv2.imread("/home/tec/code/image_processing/lung_gray.png")
-    img = cv2.imread("E:\Code\image_processing\lung.png")
+    # img = cv2.imread("E:\Code\image_processing\lung.png")
+    img = cv2.imread("E:\Code\image_processing\HPY.png")
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     process_list_simple = simple_threshold(img)
@@ -61,5 +62,5 @@ if __name__ == "__main__":
     process_list = {}
     process_list["source"] = img
     process_list = {**process_list, **process_list_simple, **process_list_adap, **process_list_otsu, **process_list_roi}
-    plot_multi(process_list, cols=8, savefig=True)
+    plot_multi(process_list, cols=8, savefig=True, figdir="images_hpy")
     

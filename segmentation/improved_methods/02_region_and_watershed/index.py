@@ -18,9 +18,9 @@ print(pd.DataFrame(img).describe())
 print(pd.DataFrame(res).describe())
 
 # watershed
-low_res, low_water_list = segmentation.tec_watershed(res, thres=10, max_value=255, thres_type=cv2.THRESH_BINARY, prefix="low")
-mid_res, mid_water_list = segmentation.tec_watershed(res, thres=70, max_value=255, thres_type=cv2.THRESH_BINARY, prefix="mid")
-high_res, high_water_list = segmentation.tec_watershed(res, thres=150, max_value=255, thres_type=cv2.THRESH_BINARY, prefix="high")
+# low_res, low_water_list = segmentation.tec_watershed(res, thres=20, max_value=255, thres_type=cv2.THRESH_BINARY, prefix="low")
+mid_res, mid_water_list = segmentation.tec_watershed(res, thres=40, max_value=255, thres_type=cv2.THRESH_BINARY, dist_percentage=0.1, prefix="mid")
+# high_res, high_water_list = segmentation.tec_watershed(res, thres=80, max_value=255, thres_type=cv2.THRESH_BINARY, prefix="high")
 
 # region_grow
 p1 = region_grow.Point(400, 200, res[400, 200])
@@ -36,9 +36,10 @@ final[grow_res==1] = 0
 process_list["final"] = final
 
 imtool.plot_multi({
+            **res_list,
             # **low_water_list,
             **mid_water_list,
             # **high_water_list, 
             **process_list
-            }, cols=8, savefig=True, showtitle=False)
+            }, cols=8, savefig=True, showtitle=True)
 

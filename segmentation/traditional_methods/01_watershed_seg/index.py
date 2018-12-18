@@ -55,7 +55,7 @@ def main(img):
 
     #####################################################################################
     # Finding sure background area(black area) and foreground area(white area)
-    sure_bg = cv2.dilate(erosion,kernel,iterations=3)
+    sure_bg = cv2.dilate(opening,kernel,iterations=3)
     process_list["sure_background"] = sure_bg
 
     dist_transform1 = cv2.distanceTransform(erosion,cv2.DIST_L1,5)
@@ -93,7 +93,7 @@ def main(img):
     # markers_unknown[unknown > 0] = 11
     process_list["markers-unknown"] = markers_unknown
 
-    markers_res = cv2.watershed(img,markers_unknown)
+    markers_res = cv2.watershed(img,markers_unknown.copy())
     process_list["markers_res"] = markers_res
     img2 = img.copy()
     img2[markers_res == -1] = [255,0,0]

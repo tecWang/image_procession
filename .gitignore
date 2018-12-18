@@ -3,3 +3,4 @@ NSCLC Radiogenomics/*
 *.pdf
 *.pyc
 images/
+images_*/
